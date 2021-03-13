@@ -1,5 +1,19 @@
-h1 {
+body {
+    background-color: #222629;
+    color: #FFFFFF;
+}
+
+h1, h3 {
     text-align: center;
+    color: #61892F;
+}
+
+a {
+    color: #6B6E70;
+}
+
+.button {
+    background-color: #86C232;
 }
 
 .profilePicture {
