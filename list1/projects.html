@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="static/css/index.css" rel="stylesheet" type="text/css">
+
     <title>Portfolio - projekty</title>
 </head>
 <body>
-    <h1>TBA</h1>
+    <h1>Moje projekty</h1>
+
+    <nav>
+        <div class="button">
+            <a href="index.html">Strona główna</a>
+        </div>
+    </nav>
+
+    <article>
+        <h2>Kompilator</h2>
+        <p>Jest to mój najnowszy projekt jednoosobowy. By zaliczyć przedmiot Języki Formalne i Teoria Translacji
+            musieliśmy napisać kompilator prostego jezyka podanego przez prowadzącego.
+        </p>
+        <p>
+            Niestety, ten projekt był wyjątkowo trudny do debuggowania z uwagi na to, że program zwracał
+            plik z kodem maszyny wirtualnej. Mój kompilator często nie zwracał błędu przy analizie kodu,
+            ale sam kod maszynowy źle się wykonywał. Parę asercji uratowało mnie przed długimi godzinami
+            szukania błędu. Na przykład pod koniec danalizy kodu odpalałem funkcję assertFreeRegisters()
+            która sprawdzała, czy zwolniłem wszystkie rejestry. To pozwoliło mi uniknąć sytuacji, gdy w pewnym
+            momencie nie zwalniam rejestru i przy długim kodzie źródlowym brakuje mi wolnych rejestrów.
+        </p>
+    </article>
+
+    <article>
+        <h2>Carcassone</h2>
+        <p>
+            Słynna planszowa gra Carcassone, którą napisaliśmy w sześcioosobowym zespole używając języków
+            Python oraz Javascript. Gra odbywa się na żywo, na wielu urządzeniach naraz, zatem trzeba
+            było przygotować odpowiednią komunikację.
+        </p>
+        <p>
+            Wpadliśmy na pomysł, by użyć dwóch poznanych nam wzorców projektowych: fabryki oraz komendy.
+            Każdy wątek (gracz) gdy tylko chciał nam wysłać informację (położenie ptytki, rezygnacja z gry),
+            musieliśmy odpowiedno zawiadomić pozostałych graczy. Udało mam się to zapewnić jedną funkcją:
+        </p>
+
+        <p>
+            Jakikolwiek input dostaniemy, wysyłamy go do fakbryki, która po analizie nagłówka zwróci nam
+            odpowiednią komendę, którą używamy poleceniem execute(). Następnie wysysłamy informację do
+            pozostałych zainteresowanych graczy.
+        </p>
+    </article>
+
+    <article>
+        <h2>Kodowanie i kompresja danych</h2>
+        <p>
+            Był to jeden z najtrudniejszych i zarazem najciekawszych kursów na studiach informatycznych.
+            Uczyliśmy się podstawowych technik kodowania danych w taki sposób, by zajmowały mniej miejsca
+            w pamięci komputera. Pisaliśmy kodowania bezstratne (np. słownikowe) oraz stratne
+            (np. zapisanie obrazka w rozrzeszeniu .tga o ograniczonej liczbie kolorów). Jednocześnie
+            nauczyłem się lepiej jezyka C++, w którym napisałem wszystkie programy z tego kursu.
+        </p>
+    </article>
+
+    <article>
+        <h2>Student helper</h2>
+        <p>
+            Aplikacja webowa pomagająca studentowi organizować czas poświęcony na studia, informująca
+            o zajęciach i innych obowiązkach. Tego nie da się opisać, to trzeba zobaczyć:
+        </p>
+        <a href="https://github.com/mateuszkochanek/student-helper">Link do repozytorium</a>
+    </article>
+
+    <nav>
+        <div class="button">
+            <a href="index.html">Strona główna</a>
+        </div>
+    </nav>
 </body>
 </html>
