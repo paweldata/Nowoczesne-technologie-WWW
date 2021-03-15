@@ -67,7 +67,8 @@ async def analyze(self, data, websocket):
     """Gets json(data) from websocket,
     Creates command for that data and executes it
     sends back prepared inforamtion to all clients"""
-    command = self.factory.createCommand(self.game, data, websocket)
+    command = self.factory.createCommand(
+                    self.game, data, websocket)
     sendBackJsonTab = (await command).execute()
     for ws, messages in sendBackJsonTab.items():
         for message in messages:
@@ -77,7 +78,7 @@ async def analyze(self, data, websocket):
         </figure>
 
         <figure>
-            <img src="static/images/carcassone.png" alt="code" title="code" class="project_picture">
+            <img src="static/images/carcassone.png" alt="carcassone" title="carcassone" class="project_picture">
         </figure>
 
         <p>
@@ -98,11 +99,11 @@ async def analyze(self, data, websocket):
         </p>
 
         <figure>
-            <img src="static/images/kkd_before.png" alt="code" title="code" class="project_picture">
+            <img src="static/images/kkd_before.png" alt="image" title="image" class="project_picture">
         </figure>
 
         <figure>
-            <img src="static/images/kkd_after.png" alt="code" title="code" class="project_picture">
+            <img src="static/images/kkd_after.png" alt="image" title="image" class="project_picture">
         </figure>
     </article >
 
@@ -112,7 +113,7 @@ async def analyze(self, data, websocket):
             Aplikacja webowa pomagająca studentowi organizować czas poświęcony na studia, informująca
             o zajęciach i innych obowiązkach. Tego nie da się opisać, to trzeba zobaczyć:
         </p>
-        <a href="https://github.com/mateuszkochanek/student-helper">Link do repozytorium</a>
+        <a href="https://github.com/mateuszkochanek/student-helper" class="repo_link">Link do repozytorium</a>
     </article>
 
     <nav>
@@ -120,5 +121,19 @@ async def analyze(self, data, websocket):
             <a href="index.html">Strona główna</a>
         </div>
     </nav>
+
+    <footer>
+        <h2>Dane kontaktowe</h2>
+        <table>
+            <tr>
+                <td>Email:</td>
+                <td>123pawel99@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Telefon:</td>
+                <td>1234567890</td>
+            </tr>
+        </table>
+    </footer>
 </body>
 </html>
