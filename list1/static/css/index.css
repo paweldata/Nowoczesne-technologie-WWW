@@ -4,9 +4,10 @@ html {
 }
 
 body {
-    max-width: 80%;
+    max-width: 85%;
     margin-left: auto;
     margin-right: auto;
+    font-family: Verdana, serif;
 }
 
 h1, h2 {
@@ -48,28 +49,21 @@ img {
     height: auto;
 }
 
-pre, code {
-    font-family: monospace, monospace;
-}
 pre {
-    overflow: auto;
-}
-pre > code {
-    display: block;
-    padding: 1rem;
-    word-wrap: normal;
+    display: inline-block;
+    text-align: left;
 }
 
 figure {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    text-align: center;
 }
 
 .project_picture {
     visibility: hidden;
-    width: auto;
-    height: 0;
+    width: 0;
+    height: auto;
 }
 
 @media screen and (min-width: 600px) {
@@ -145,6 +139,7 @@ figure {
 
     .project_picture {
         visibility: visible;
-        height: 400px;
+        max-width: 600px;
+        width: 90%;
     }
 }
