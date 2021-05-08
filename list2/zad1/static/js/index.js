@@ -1,7 +1,17 @@
+const menu = document.getElementById("menuList");
+
 document.getElementById("ham").onclick = function () {
-    const menu = document.getElementById("menuList");
-    if (menu.style.display === "block")
+    if (menu.style.display === "block") {
         menu.style.display = "none";
-    else
+    } else {
         menu.style.display = "block";
-}
+    }
+};
+
+window.onresize = function () {
+    if (window.innerWidth >= 600) {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
+};

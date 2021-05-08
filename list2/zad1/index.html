@@ -14,10 +14,10 @@
             <img src="static/images/menu_icon.png" alt="menu" title="menu">
         </button>
         <ul id="menuList" class="menuList">
-            <li>Wstęp</li>
-            <li>Zainteresowania</li>
-            <li>Projekty</li>
-            <li>Dane kontaktowe</li>
+            <li><a href="#main">Wstęp</a></li>
+            <li><a href="#hobby">Zainteresowania</a></li>
+            <li><a href="#projects">Projekty</a></li>
+            <li><a href="#contact">Dane kontaktowe</a></li>
         </ul>
     </nav>
 
@@ -28,7 +28,7 @@
     <main>
         <img src="static/images/profilePicture.jpg" alt="profile picture" class="profilePicture" title="Paweł Data">
 
-        <article>
+        <article id="main">
             <h3><b>Witam na mojej stronie!</b></h3>
             <p>
                 Pochodzę z województwa opolskiego, z miejscowości Krapkowice, mam 21 lat.
@@ -40,7 +40,7 @@
         </article>
     </main>
 
-    <article class="hobby_list">
+    <article class="hobby_list" id="hobby">
         <h2>Zainteresowania</h2>
         <section class="hobby_math_IT">
             <h3>Informatyczne/matematyczne</h3>
@@ -89,7 +89,7 @@
         </section>
     </article>
 
-    <h2>Projekty</h2>
+    <h2 id="projects">Projekty</h2>
 
     <article class="project">
         <h4>Kompilator</h4>
@@ -191,7 +191,7 @@ async def analyze(self, data, websocket):
         <a href="https://github.com/mateuszkochanek/student-helper" class="repo_link">Link do repozytorium</a>
     </article>
 
-    <footer>
+    <footer id="contact">
         <h2>Dane kontaktowe</h2>
         <table class="contact_table">
             <tr>
