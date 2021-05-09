@@ -1,4 +1,5 @@
 let canvas;
+let gallery;
 const mouseLocation = new Point(0, 0);
 const emptyTileLocation = new Point(0, 0);
 
@@ -7,7 +8,8 @@ function distance(point1, point2) {
 }
 
 window.onload = function () {
-    canvas = new Canvas(4, 4, "static/images/beach.jpg");
+    gallery = new Gallery();
+    canvas = new Canvas(4, 4, gallery.getImagePath());
 
     document.getElementById('canvas').onmousemove = function(e) {
         mouseLocation.x = Math.floor((e.pageX - this.offsetLeft) / canvas.tileWidthSize);
@@ -17,7 +19,7 @@ window.onload = function () {
 
     document.getElementById('canvas').onclick = function() {
         if (canvas.solved) {
-            canvas.prepareGame(canvas.tileWidthCount, canvas.tileHeightCount, "static/images/beach.jpg");
+            canvas.prepareGame(canvas.tileWidthCount, canvas.tileHeightCount, gallery.getImagePath());
         }
         if (distance(mouseLocation, emptyTileLocation) === 1) {
             canvas.slideTile(emptyTileLocation, mouseLocation);
@@ -27,12 +29,17 @@ window.onload = function () {
             alert("Wygrałeś!");
         }
     };
+
+    document.getElementById("imagesList").onclick = function (e) {
+        gallery.imgId = e.target.id;
+        document.getElementById("chosenImage").src = e.target.src;
+    }
 }
 
 function restartGame() {
     let newWidthCount = parseInt(document.getElementById("widthCount").value);
     let newHeightCount = parseInt(document.getElementById("heightCount").value);
     if (newWidthCount > 0 && newHeightCount > 0) {
-        canvas.prepareGame(newWidthCount, newHeightCount, "static/images/beach.jpg");
+        canvas.prepareGame(newWidthCount, newHeightCount, gallery.getImagePath());
     }
 }

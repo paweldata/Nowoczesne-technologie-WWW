@@ -7,3 +7,16 @@ canvas {
     margin: auto;
     background: red;
 }
+
+.imagesList {
+    display: inline;
+}
+
+.imagesList li {
+    display: inline-block;
+}
+
+img {
+    width: 56px;
+    height: 80px;
+}

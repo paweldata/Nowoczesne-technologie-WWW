@@ -9,13 +9,22 @@ class Canvas {
         this.solved = false;
         this.setTileSize();
         this.setBoard();
-        this.setImage(imgPath);
+        this.loadImage(imgPath);
     }
 
-    setImage(imgPath) {
-        this.img = new Image();
-        this.img.src = imgPath;
-        this.img.addEventListener('load', function () { canvas.drawTiles(); }, false)
+    loadImage(imgPath) {
+        this.loadImageWithPromise(imgPath)
+            .then(() => this.drawTiles())
+            .catch(() => alert("Error"));
+    }
+
+    loadImageWithPromise(imgPath) {
+        return new Promise((resolve, reject) => {
+            this.img = new Image();
+            this.img.addEventListener('load', () => resolve(), false);
+            this.img.addEventListener('error', () => reject());
+            this.img.src = imgPath;
+        });
     }
 
     setTileSize() {
