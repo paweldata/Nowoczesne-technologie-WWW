@@ -2,19 +2,21 @@ let canvas;
 const mouseLocation = new Point(0, 0);
 const emptyTileLocation = new Point(0, 0);
 
+function distance(point1, point2) {
+    return Math.abs(point1.x - point2.x) + Math.abs(point1.y - point2.y);
+}
+
 window.onload = function () {
     canvas = new Canvas(4, 4, "static/images/beach.jpg");
 
     document.getElementById('canvas').onmousemove = function(e) {
         mouseLocation.x = Math.floor((e.pageX - this.offsetLeft) / canvas.tileWidthSize);
         mouseLocation.y = Math.floor((e.pageY - this.offsetTop) / canvas.tileHeightSize);
+        canvas.drawTiles();
     };
 
     document.getElementById('canvas').onclick = function() {
-        function distance(x1, y1, x2, y2) {
-            return Math.abs(x1 - x2) + Math.abs(y1 - y2);
-        }
-        if (distance(mouseLocation.x, mouseLocation.y, emptyTileLocation.x, emptyTileLocation.y) === 1) {
+        if (distance(mouseLocation, emptyTileLocation) === 1) {
             canvas.slideTile(emptyTileLocation, mouseLocation);
             canvas.drawTiles();
         }
