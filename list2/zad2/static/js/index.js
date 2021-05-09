@@ -16,6 +16,9 @@ window.onload = function () {
     };
 
     document.getElementById('canvas').onclick = function() {
+        if (canvas.solved) {
+            canvas.prepareGame(canvas.tileWidthCount, canvas.tileHeightCount, "static/images/beach.jpg");
+        }
         if (distance(mouseLocation, emptyTileLocation) === 1) {
             canvas.slideTile(emptyTileLocation, mouseLocation);
             canvas.drawTiles();

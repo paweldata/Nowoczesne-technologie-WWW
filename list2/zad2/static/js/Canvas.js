@@ -15,9 +15,7 @@ class Canvas {
     setImage(imgPath) {
         this.img = new Image();
         this.img.src = imgPath;
-        this.img.addEventListener('load', function () {
-            canvas.drawTiles();
-        }, false)
+        this.img.addEventListener('load', function () { canvas.drawTiles(); }, false)
     }
 
     setTileSize() {
@@ -40,7 +38,6 @@ class Canvas {
 
         emptyTileLocation.x = this.tiles[this.tileWidthCount - 1][this.tileHeightCount - 1].x;
         emptyTileLocation.y = this.tiles[this.tileWidthCount - 1][this.tileHeightCount - 1].y;
-        this.solved = false;
     }
 
     slideTile(toLoc, fromLoc) {
@@ -51,11 +48,11 @@ class Canvas {
             this.tiles[fromLoc.x][fromLoc.y].y = this.tileHeightCount - 1;
             toLoc.x = fromLoc.x;
             toLoc.y = fromLoc.y;
-            this.checkSolved();
+            this.checkEndGame();
         }
     }
 
-    checkSolved() {
+    checkEndGame() {
         let flag = true;
         for (let i = 0; i < this.tileWidthCount; ++i) {
             for (let j = 0; j < this.tileHeightCount; ++j) {
@@ -93,12 +90,11 @@ class Canvas {
     }
 
     addBacklight(context) {
-        if (distance(mouseLocation, emptyTileLocation) === 1) {
+        if (distance(mouseLocation, emptyTileLocation) === 1 && this.solved === false) {
             context.strokeStyle = 'yellow';
             context.lineWidth = Math.min(this.tileWidthSize, this.tileHeightSize) * 0.05;
             context.strokeRect(mouseLocation.x * this.tileWidthSize, mouseLocation.y * this.tileHeightSize,
                 this.tileWidthSize, this.tileHeightSize);
-            console.log(mouseLocation);
         }
     }
 }
