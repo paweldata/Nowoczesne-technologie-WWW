@@ -1,11 +1,30 @@
 body {
-    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
 }
 
 canvas {
     border: 1px solid black;
     margin: auto;
     background: red;
+}
+
+.settings {
+    display: grid;
+    margin: auto;
+}
+
+label {
+    margin: 5px;
+}
+
+#startGameButton {
+    width: 300px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .imagesList {
@@ -19,4 +38,12 @@ canvas {
 img {
     width: 56px;
     height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        grid-template-columns: 1fr 1fr;
+    }
 }

@@ -13,37 +13,37 @@
     <title>Puzzle</title>
 </head>
 <body>
-    <canvas id="canvas" width="448px" height="640px"></canvas>
+    <canvas id="canvas" width="448" height="640"></canvas>
 
-    <label>
-        Ilość w pionie :
-        <input type="number" name="heightCount" id="heightCount" required>
-    </label>
-    <label>
-        Ilość w poziomie :
-        <input type="number" name="widthCount" id="widthCount" required>
-    </label>
-    <button type="button" id="startGameButton" onclick="restartGame()">Graj</button>
+    <div class="settings">
+        <label>
+            Ilość w pionie :
+            <input type="number" name="heightCount" id="heightCount" required>
+        </label>
+        <label>
+            Ilość w poziomie :
+            <input type="number" name="widthCount" id="widthCount" required>
+        </label>
+        <button type="button" id="startGameButton" onclick="restartGame()">Graj</button>
 
-    <br>
-    <ul class="imagesList" id="imagesList">
-        <li><img src="static/images/beach-min.jpg" alt="beach" id="0"></li>
-        <li><img src="static/images/butterfly-min.jpg" alt="butterfly" id="1"></li>
-        <li><img src="static/images/car-race-min.jpg" alt="car-race" id="2"></li>
-        <li><img src="static/images/coffee-milk-min.jpg" alt="coffee-milk" id="3"></li>
-        <li><img src="static/images/desserts-min.jpg" alt="desserts" id="4"></li>
-        <li><img src="static/images/fox-min.jpg" alt="fox" id="5"></li>
-        <li><img src="static/images/girl-min.jpg" alt="girl" id="6"></li>
-        <li><img src="static/images/kitten-min.jpg" alt="kitten" id="7"></li>
-        <li><img src="static/images/paris-min.jpg" alt="paris" id="8"></li>
-        <li><img src="static/images/pizza-min.jpg" alt="pizza" id="9"></li>
-        <li><img src="static/images/salmon-min.jpg" alt="salmon" id="10"></li>
-        <li><img src="static/images/sunset-min.jpg" alt="sunset" id="11"></li>
-    </ul>
+        <ul class="imagesList" id="imagesList">
+            <li><img src="static/images/beach-min.jpg" alt="beach" id="0"></li>
+            <li><img src="static/images/butterfly-min.jpg" alt="butterfly" id="1"></li>
+            <li><img src="static/images/car-race-min.jpg" alt="car-race" id="2"></li>
+            <li><img src="static/images/coffee-milk-min.jpg" alt="coffee-milk" id="3"></li>
+            <li><img src="static/images/desserts-min.jpg" alt="desserts" id="4"></li>
+            <li><img src="static/images/fox-min.jpg" alt="fox" id="5"></li>
+            <li><img src="static/images/girl-min.jpg" alt="girl" id="6"></li>
+            <li><img src="static/images/kitten-min.jpg" alt="kitten" id="7"></li>
+            <li><img src="static/images/paris-min.jpg" alt="paris" id="8"></li>
+            <li><img src="static/images/pizza-min.jpg" alt="pizza" id="9"></li>
+            <li><img src="static/images/salmon-min.jpg" alt="salmon" id="10"></li>
+            <li><img src="static/images/sunset-min.jpg" alt="sunset" id="11"></li>
+        </ul>
 
-
-    <p id="imageTitle">Wybrano : </p>
-    <img src="static/images/beach-min.jpg" class="chosenImage" id="chosenImage" alt="chosenImage">
+        <p id="imageTitle">Wybrano : </p>
+        <img src="static/images/beach-min.jpg" class="chosenImage" id="chosenImage" alt="chosenImage">
+    </div>
 
 </body>
 </html>
