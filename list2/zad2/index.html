@@ -4,11 +4,25 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="static/css/index.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="static/js/Point.js" defer></script>
+    <script type="text/javascript" src="static/js/Canvas.js" defer></script>
     <script type="text/javascript" src="static/js/index.js" defer></script>
 
     <title>Puzzle</title>
 </head>
 <body>
     <canvas id="canvas" width="448px" height="640px"></canvas>
+
+    <label>
+        Ilość w pionie :
+        <input type="number" name="heightCount" id="heightCount" required>
+    </label>
+    <label>
+        Ilość w poziomie :
+        <input type="number" name="widthCount" id="widthCount" required>
+    </label>
+    <button type="button" id="startGameButton" onclick="restartGame()">Graj</button>
+
 </body>
 </html>
