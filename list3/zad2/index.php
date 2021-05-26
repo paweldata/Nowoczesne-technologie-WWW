@@ -13,21 +13,8 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <nav>
-        <button class="ham" id="ham">
-            <img src="static/images/menu_icon.png" alt="menu" title="menu">
-        </button>
-        <ul id="menuList" class="menuList">
-            <li><a href="#main">Wstęp</a></li>
-            <li><a href="#hobby">Zainteresowania</a></li>
-            <li><a href="#projects">Projekty</a></li>
-            <li><a href="#contact">Dane kontaktowe</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <h1>Portfolio</h1>
-    </header>
+    <?php include 'nav.html' ?>
+    <?php include 'header.html' ?>
 
     <main>
         <img src="static/images/profilePicture.jpg" alt="profile picture" class="profilePicture" title="Paweł Data">
@@ -195,23 +182,7 @@ async def analyze(self, data, websocket):
         <a href="https://github.com/mateuszkochanek/student-helper" class="repo_link">Link do repozytorium</a>
     </article>
 
-    <footer id="contact">
-        <h2>Dane kontaktowe</h2>
-        <table class="contact_table">
-            <tr>
-                <td>Imię i nazwisko:</td>
-                <td>Paweł Data</td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>123pawel99@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Telefon:</td>
-                <td>1234567890</td>
-            </tr>
-        </table>
-    </footer>
+    <?php include 'footer.html' ?>
 
 </body>
 </html>
