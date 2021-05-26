@@ -1,13 +1,43 @@
+$colors: (
+        dark: #222629,
+        lightGreen: #86C232,
+        darkGreen: #61892F,
+        white: #FFFFFF,
+        grey: #94949a,
+);
+
+@mixin horizontal-margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+$sizeBreakpoints: (
+        medium: 600px,
+        large: 1000px,
+);
+
+@mixin setAttributesForSize($canvas) {
+  @if map-has-key($sizeBreakpoints, $canvas) {
+    @media only screen and (min-width: map-get($sizeBreakpoints, $canvas)) {
+      @content;
+    }
+  }
+}
+
 html {
-  background-color: #222629;
-  color: #FFFFFF;
+  background-color: map-get($colors, dark);
+  color: map-get($colors, white);
 }
 
 body {
+  @include horizontal-margin-auto();
   max-width: 85%;
-  margin-left: auto;
-  margin-right: auto;
   font-family: Verdana, serif;
+
+  @include setAttributesForSize(medium) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 .ham {
@@ -16,8 +46,12 @@ body {
   right: 10px;
   cursor: pointer;
   border: none;
-  background: #61892F;
+  background: map-get($colors, lightGreen);
   border-radius: 5px;
+
+  @include setAttributesForSize(medium) {
+    display: none;
+  }
 
   img {
     width: 40px;
@@ -26,86 +60,14 @@ body {
 }
 
 nav ul {
-  background: #86C232;
+  background: map-get($colors, lightGreen);
   border-radius: 10px;
 }
 
 .menuList {
   display: none;
-}
 
-h1, h2 {
-  text-align: center;
-  color: #61892F;
-}
-
-h3 {
-  color: #94949a;
-}
-
-h4 {
-  color: #86C232;
-}
-
-a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.profilePicture {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-}
-
-pre {
-  display: inline-block;
-  text-align: left;
-  font-family: Courier, serif;
-  font-size: 2.5vw;
-  color: #FFFFFF;
-  background-color: #86C232;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-figure {
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-
-.project_picture {
-  visibility: hidden;
-  width: 0;
-  height: auto;
-}
-
-.repo_link {
-  color: #94949a;
-}
-
-.contact_table td {
-  padding: 2px 10px;
-}
-
-@media screen and (min-width: 600px) {
-  body {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  .ham {
-    display: none;
-  }
-
-  .menuList {
+  @include setAttributesForSize(medium) {
     width: 100%;
     font-size: 2.7vw;
     display: block;
@@ -120,26 +82,38 @@ figure {
       display: inline;
 
       &:hover {
-        background: #61892F;
+        background: map-get($colors, darkGreen);
       }
     }
   }
+}
 
-  header {
-    grid-column: 1 / 3;
-  }
+h1, h2 {
+  text-align: center;
+  color: map-get($colors, darkGreen);
+}
 
-  main {
+h3 {
+  color: map-get($colors, grey);
+}
+
+h4 {
+  color: map-get($colors, lightGreen);
+}
+
+a {
+  color: map-get($colors, white);
+  text-decoration: none;
+}
+
+main {
+  @include setAttributesForSize(medium) {
     grid-column: 1 / 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 3%;
 
     > {
-      img {
-        grid-column: 1;
-      }
-
       article {
         grid-column: 2;
         display: grid;
@@ -147,24 +121,78 @@ figure {
     }
   }
 
-  nav {
-    margin: 2%;
+  @include setAttributesForSize(large) {
+    grid-template-rows: 3fr 1fr;
+  }
+}
+
+img {
+  @include horizontal-margin-auto();
+  display: block;
+
+  @include setAttributesForSize(medium) {
+    grid-column: 1;
   }
 
-  pre {
+  @include setAttributesForSize(large) {
+    grid-row: 1 / 3;
+  }
+}
+
+.profilePicture {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+pre {
+  display: inline-block;
+  text-align: left;
+  font-family: Courier, serif;
+  font-size: 2.5vw;
+  color: map-get($colors, white);
+  background-color: map-get($colors, lightGreen);
+  border-radius: 10px;
+  padding: 5px;
+
+  @include setAttributesForSize(medium) {
     font-size: 1.3vw;
   }
 }
 
-@media screen and (min-width: 1000px) {
-  main {
-    grid-template-rows: 3fr 1fr;
-  }
+figure {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
 
-  img {
-    grid-row: 1 / 3;
-  }
+.project_picture {
+  visibility: hidden;
+  width: 0;
+  height: auto;
 
+  @include setAttributesForSize(large) {
+    visibility: visible;
+    max-width: 600px;
+    width: 90%;
+  }
+}
+
+.repo_link {
+  color: map-get($colors, grey);
+}
+
+.contact_table td {
+  padding: 2px 10px;
+}
+
+@include setAttributesForSize(medium) {
+  header {
+    grid-column: 1 / 3;
+  }
+}
+
+@include setAttributesForSize(large) {
   .hobby_list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -200,9 +228,7 @@ figure {
     grid-column: 1 / 3;
   }
 
-  .project_picture {
-    visibility: visible;
-    max-width: 600px;
-    width: 90%;
+  nav {
+    margin: 2%;
   }
 }
