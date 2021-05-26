@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+    .ham {
+        display: none;
+    }
+
+    .menuList {
+        width: 90%;
+        font-size: 20px;
+        display: block;
+    }
+}
