@@ -11,6 +11,8 @@
     </noscript>
 
     <title>Portfolio</title>
+
+    <?php include 'CounterUpdater.php' ?>
 </head>
 <body>
     <?php include 'nav.html' ?>
