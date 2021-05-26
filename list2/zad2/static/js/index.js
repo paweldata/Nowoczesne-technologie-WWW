@@ -39,7 +39,7 @@ window.onload = function () {
 function restartGame() {
     let newWidthCount = parseInt(document.getElementById("widthCount").value);
     let newHeightCount = parseInt(document.getElementById("heightCount").value);
-    if (newWidthCount > 0 && newHeightCount > 0) {
+    if (newWidthCount > 1 && newHeightCount > 1) {
         canvas.prepareGame(newWidthCount, newHeightCount, gallery.getImagePath());
     }
 }
