@@ -12,7 +12,8 @@
 
     <title>Portfolio</title>
 
-    <?php include 'CounterUpdater.php' ?>
+    <?php include 'ErrorHandler.php' ?>
+    <?php include 'visitCounter/CounterUpdater.php' ?>
 </head>
 <body>
     <?php include 'nav.html' ?>

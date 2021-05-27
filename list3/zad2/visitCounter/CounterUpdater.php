@@ -4,8 +4,8 @@ $counterUpdater = new CounterUpdater();
 $counterUpdater->update();
 
 class CounterUpdater {
-    const IP_LIST_FILE = "ipList.txt";
-    const VISIT_COUNTER_FILE = "visitCounter.txt";
+    const IP_LIST_FILE = "visitCounter/ipList.txt";
+    const VISIT_COUNTER_FILE = "visitCounter/visitCounter.txt";
     const DATE_FORMAT = "Y-m-d";
     private int $counter;
 
