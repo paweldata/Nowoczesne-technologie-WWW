@@ -184,7 +184,7 @@ async def analyze(self, data, websocket):
         <a href="https://github.com/mateuszkochanek/student-helper" class="repo_link">Link do repozytorium</a>
     </article>
 
-    <?php include 'footer.html' ?>
+    <?php include 'footer.php' ?>
 
 </body>
 </html>

@@ -1,10 +1,30 @@
 <?php
-(new CounterUpdater)->update();
+
+$counterUpdater = new CounterUpdater();
+$counterUpdater->update();
 
 class CounterUpdater {
     const IP_LIST_FILE = "ipList.txt";
     const VISIT_COUNTER_FILE = "visitCounter.txt";
     const DATE_FORMAT = "Y-m-d";
+    private int $counter;
+
+    function __construct() {
+        $this->setCounterFromFile();
+    }
+
+    private function setCounterFromFile() {
+        $file = fopen(self::VISIT_COUNTER_FILE, "r");
+
+        if ($file) {
+            $this->counter = (int)fread($file, 20);
+            fclose($file);
+        } else {
+            $this->counter = 0;
+        }
+    }
+
+    function getCounter(): int { return $this->counter; }
 
     function update() {
         $ip = $this->getClientIp();
@@ -60,18 +80,9 @@ class CounterUpdater {
     }
 
     private function updateCounter() {
-        $file = fopen("" . self::VISIT_COUNTER_FILE . "", "r");
-
-        if ($file) {
-            $counter = (int) fread($file,20);
-            fclose($file);
-            $counter++;
-        } else {
-            $counter = 1;
-        }
-
+        $this->counter++;
         $file = fopen(self::VISIT_COUNTER_FILE, "w");
-        fwrite($file, $counter);
+        fwrite($file, $this->counter);
         fclose ($file);
     }
 }
