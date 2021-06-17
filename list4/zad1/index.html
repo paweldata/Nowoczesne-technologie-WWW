@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="static/css/index.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+  <title>Interpolacja</title>
+</head>
+<body>
+
+<header>
+  <h1>Interpolacja La-grange’a</h1>
+</header>
+
+<main>
+  <h2><b>Twierdzenie La-grange’a o interpolacji wielomianu $f$ nad $\mathbb{Z}p$:</b></h2>
+
+  <p>
+    Interpolacja wielomianowa, nazywana też interpolacją Lagrange’a, od nazwiska pioniera badań nad interpolacją Josepha Lagrange’a
+    lub po prostu interpolacją – metoda numeryczna przybliżania funkcji tzw. wielomianem Lagrange’a stopnia $n$
+    przyjmującym w $n+1$ punktach, zwanych węzłami interpolacji, wartości takie same jak przybliżana funkcja.
+  </p>
+  <p>
+    Interpolacja jest często stosowana w naukach doświadczalnych, gdzie dysponuje się zazwyczaj skończoną liczbą danych określających badane zależności.
+  </p>
+  <p>
+    Zgodnie z twierdzeniem Weierstrassa dowolną funkcję $y = f(x)$, ciągłą na przedziale domkniętym
+    [$x_0$,$x_n$]$\in R^1$ można dowolnie przybliżyć za pomocą wielomianu odpowiednio wysokiego stopnia.
+  </p>
+
+  <p>
+    Mając dane $t$ różnych punktów $(x_i, y_i)$ nieznanego wielomianu $f$ stopnia mniejszego od $t$
+    możemy policzyć jego współczynniki korzystając ze wzoru:
+  </p>
+
+  $$f(x) = \sum_{i=1}^{t} (y_i \prod_{1 \leq j \leq t, j \ne i} \frac{x-x_j}{x_i-x_j} ) \text{ mod } p$$
+</main>
+
+<article class="hobby_list" id="hobby">
+</article>
+
+</body>
+</html>
